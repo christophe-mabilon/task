@@ -40,6 +40,7 @@ export class AddTaskFormComponent implements OnInit {
       status: ['', Validators.required],
       creationDate: ['', Validators.required],
     });
+    
   }
 
   addTask() {

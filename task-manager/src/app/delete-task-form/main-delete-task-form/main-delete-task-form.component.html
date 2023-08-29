@@ -1,0 +1,12 @@
+<div class="container col-8 card p-3 my-3">
+  <app-delete-task-form
+    (deletedTaskEmiter)="deleteTask($event)"
+  ></app-delete-task-form>
+
+  <div
+    class="my-3 py-2 border border-grey rounded-5 col-12 bg-success text-light text-center"
+    *ngIf="successDelete"
+  >
+    Tache supprimée avec succès
+  </div>
+</div>

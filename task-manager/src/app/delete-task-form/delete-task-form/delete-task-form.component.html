@@ -1,0 +1,39 @@
+<div class="row mx-0">
+    <div class="col mx-auto">
+      <div class="p-2 my-2 border bg-secondary text-light">
+        Rechercher une task par son titre pour la supprimer
+      </div>
+      <form [formGroup]="form" class="d-flex">
+        <input
+          formControlName="search"
+          class="form-control me-2 btn-outline-dark"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-dark" (click)="findTask()" type="submit">
+          Search
+        </button>
+      </form>
+      <div *ngFor="let task of selectedTask" class="task-card d-flex align-items-center my-2 px-2 py-1">
+        <div class="col-1"><b>Id : </b>{{ task.id }}</div>
+        <div class="col-2"><b>Nom : </b>{{ task.title }}</div>
+        <div class="col-5"><b>Description :</b> {{ task.description }}</div>
+        <div
+          (click)="deleteTask(task)"
+          class="d-flex col justify-content-end mr-30 align-items-center"
+        >
+          <button mat-raised-button class="btn-delete">
+            <span class="d-flex align-items-center"
+              >Supprimer cette task ?<mat-icon class="text-danger"
+                >close</mat-icon
+              ></span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    
+  </div>
+  

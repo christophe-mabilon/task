@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Task } from 'src/model/task';
@@ -10,11 +10,11 @@ import { CRUDTaskListService } from 'src/service/crudtask-list.service';
   templateUrl: './delete-task-form.component.html',
   styleUrls: ['./delete-task-form.component.scss'],
 })
-export class DeleteTaskFormComponent implements OnInit {
+export class DeleteTaskFormComponent {
+  @Output() deletedTaskEmiter = new EventEmitter<Task>();
   form!: FormGroup;
   private unsubscribe$ = new Subject();
   selectedTask!: Task[];
-  successDelete = false;
   constructor(
     private fb: FormBuilder,
     private crudTaskListService: CRUDTaskListService,
@@ -54,20 +54,9 @@ export class DeleteTaskFormComponent implements OnInit {
         },
       });
   }
-
-  deleteTask(task: Task): void {
-    this.crudTaskListService
-      .deleteById(task.id!)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe({
-        next: (result: Task) => {
-          if (result) {
-            this.successDelete = true;
-            setTimeout(() => {
-              this.router.navigateByUrl('/display');
-            }, 1500);
-          }
-        },
-      });
+  deleteTask(task: Task) {
+    if (this.selectedTask) {
+      this.deletedTaskEmiter.emit(task);
+    }
   }
 }
