@@ -1,0 +1,11 @@
+<mat-error *ngIf="showError && require"
+  >Le champ {{ fieldName }} est obligatoire.</mat-error
+>
+<mat-error *ngIf="minLength && showError"
+  >Le champ {{ fieldName }} doit avoir une longueur minimale de
+  {{ minLength }} caractères.</mat-error
+>
+<mat-error *ngIf="maxLength && showError"
+  >Le champ {{ fieldName }} doit avoir une longueur maximale de
+  {{ maxLength }} caractères.</mat-error
+>

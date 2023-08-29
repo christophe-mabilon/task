@@ -13,16 +13,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MainAddTaskFormComponent } from './main-add-task-form/main-add-task-form.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
-
+import { ErrorMinLengthComponent } from '../error-min-length/error-min-length.component';
 
 @NgModule({
-  declarations: [
-    AddTaskFormComponent,
-    MainAddTaskFormComponent
-  ],
+  declarations: [AddTaskFormComponent, MainAddTaskFormComponent],
   imports: [
     CommonModule,
-    AddTaskFormRoutingModule,CommonModule,
+    AddTaskFormRoutingModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AddTaskFormRoutingModule,
@@ -35,6 +33,7 @@ import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
     MatButtonModule,
     MatOptionModule,
     MatSelectModule,
-  ]
+    ErrorMinLengthComponent,
+  ],
 })
-export class AddTaskFormModule { }
+export class AddTaskFormModule {}

@@ -25,7 +25,7 @@ export class AddTaskFormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(1),
+          Validators.minLength(2),
           Validators.maxLength(30),
         ],
       ],
@@ -33,7 +33,7 @@ export class AddTaskFormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(1),
+          Validators.minLength(2),
           Validators.maxLength(50),
         ],
       ],

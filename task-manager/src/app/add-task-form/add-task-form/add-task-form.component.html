@@ -15,27 +15,33 @@
             placeholder="titre de la task"
           />
         </mat-form-field>
-        <mat-error
-          *ngIf="
+        <app-error-min-length
+          [showError]="
+            (addForm.get('title')?.hasError('required') &&
+              addForm.get('title')?.touched) ||
+            (addForm.get('title')?.hasError('minlength') &&
+              addForm.get('title')?.touched) ||
+            (addForm.get('title')?.hasError('maxlength') &&
+              addForm.get('title')?.touched)
+          "
+          [require]="
             addForm.get('title')?.hasError('required') &&
             addForm.get('title')?.touched
           "
-          >Le titre est requis</mat-error
-        >
-        <mat-error
-          *ngIf="
+          [fieldName]="'titre'"
+          [minLength]="
             addForm.get('title')?.hasError('minlength') &&
             addForm.get('title')?.touched
+              ? 2
+              : undefined
           "
-          >Le titre doit avoir au moins 1 caractère</mat-error
-        >
-        <mat-error
-          *ngIf="
+          [maxLength]="
             addForm.get('title')?.hasError('maxlength') &&
             addForm.get('title')?.touched
+              ? 30
+              : undefined
           "
-          >Le titre ne peut pas avoir plus de 30 caractères</mat-error
-        >
+        ></app-error-min-length>
       </div>
       <div class="mb-3">
         <mat-form-field class="col-12">
@@ -47,27 +53,33 @@
             rows="3"
           ></textarea>
         </mat-form-field>
-        <mat-error
-          *ngIf="
-            addForm.get('description')?.touched &&
-            addForm.get('description')?.hasError('required')
+        <app-error-min-length
+          [showError]="
+            (addForm.get('description')?.hasError('required') &&
+              addForm.get('description')?.touched) ||
+            (addForm.get('description')?.hasError('minlength') &&
+              addForm.get('description')?.touched) ||
+            (addForm.get('description')?.hasError('maxlength') &&
+              addForm.get('description')?.touched)
           "
-          >La description est requise</mat-error
-        >
-        <mat-error
-          *ngIf="
-            addForm.get('description')?.touched &&
-            addForm.get('description')?.hasError('minlength')
+          [require]="
+            addForm.get('description')?.hasError('required') &&
+            addForm.get('description')?.touched
           "
-          >La description doit avoir au moins 1 caractère</mat-error
-        >
-        <mat-error
-          *ngIf="
-            addForm.get('description')?.touched &&
-            addForm.get('description')?.hasError('maxlength')
+          [fieldName]="'description'"
+          [minLength]="
+            addForm.get('description')?.hasError('minlength') &&
+            addForm.get('description')?.touched
+              ? 1
+              : undefined
           "
-          >La description ne peut pas avoir plus de 50 caractères</mat-error
-        >
+          [maxLength]="
+            addForm.get('description')?.hasError('maxlength') &&
+            addForm.get('description')?.touched
+              ? 50
+              : undefined
+          "
+        ></app-error-min-length>
       </div>
       <div class="mb-3">
         <mat-form-field class="col-12">
@@ -78,13 +90,19 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-error
-          *ngIf="
+        <app-error-min-length
+          [showError]="
             addForm.get('status')?.hasError('required') &&
             addForm.get('status')?.touched
           "
-          >Le statut est requis</mat-error
-        >
+          [require]="
+            addForm.get('status')?.hasError('required') &&
+            addForm.get('status')?.touched
+          "
+          [fieldName]="'status'"
+          [minLength]="undefined"
+          [maxLength]="undefined"
+        ></app-error-min-length>
       </div>
 
       <div class="col-12 justify-content-end ms-auto">
