@@ -6,7 +6,21 @@ const routes: Routes = [
     path: 'display',
     loadChildren: () =>
       import('./task/task.module').then((module) => module.TaskModule),
-  }
+  },
+  {
+    path: 'add',
+    loadChildren: () =>
+      import('./add-task-form/add-task-form.module').then(
+        (module) => module.AddTaskFormModule
+      ),
+  },
+  {
+    path: 'delete',
+    loadChildren: () =>
+      import('./delete-task-form/delete-task-form.module').then(
+        (module) => module.DeleteTaskFormModule
+      ),
+  },
 ];
 
 @NgModule({

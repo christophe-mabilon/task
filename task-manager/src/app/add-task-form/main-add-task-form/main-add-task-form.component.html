@@ -1,0 +1,11 @@
+<div class="container card my-3">
+  <h2>Ajouter une nouvelle tâche</h2>
+  <app-add-task-form (taskAdded)="addTask($event)"></app-add-task-form>
+
+  <div
+    class="my-3 py-2 border border-grey rounded-5 col-12 bg-success text-light text-center"
+    *ngIf="createdTask"
+  >
+    Tache crée avec succès
+  </div>
+</div>

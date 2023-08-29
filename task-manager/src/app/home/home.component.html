@@ -22,29 +22,38 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto align-items-center mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'task'">Task</a>
+          <a class="nav-link d-flex w-100 task" [routerLink]="'task'"><div class="d-flex align-items-center">
+            <mat-icon class="d-flex">task</mat-icon>Task</div></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'display'">TaskList</a>
+          <a class="nav-link d-flex w-100 list" [routerLink]="'display'"
+            ><div class="d-flex align-items-center">
+              <mat-icon class="d-flex">list</mat-icon>TaskList
+            </div></a
+          >
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" tabindex="-1" aria-disabled="true"
-            >New</a
+          <a class="nav-link d-flex w-100 add" [routerLink]="'add'"
+            ><div class="d-flex align-items-center">
+              <mat-icon class="d-flex">add</mat-icon>
+
+              <span class="d-flex align-items-center">Ajouter</span>
+            </div></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex w-100 delete" [routerLink]="'delete'"
+            ><div class="d-flex align-items-center">
+              <mat-icon class="d-flex">delete</mat-icon>
+
+              <span class="d-flex align-items-center">Supprimer</span>
+            </div></a
           >
         </li>
       </ul>
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

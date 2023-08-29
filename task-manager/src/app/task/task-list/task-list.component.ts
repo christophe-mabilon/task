@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { Status } from 'src/model/satus.enum';
 import { Task } from 'src/model/task';
 import { CRUDTaskListService } from 'src/service/crudtask-list.service';
 

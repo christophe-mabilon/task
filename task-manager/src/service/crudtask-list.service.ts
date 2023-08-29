@@ -27,17 +27,7 @@ export class CRUDTaskListService implements OnDestroy {
    * @returns
    */
   create(task: Task): Observable<Task> {
-    let taskList: Task[] = [];
-    this.read()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe({
-        next: (taskResult: Task[]) => {
-          taskList = taskResult;
-        },
-      });
-
-    const newTask: Task = { ...task, id: taskList.length + 1 };
-    return this.http.post<Task>(this.baseUrl, newTask);
+    return this.http.post<Task>(this.baseUrl, task);
   }
 
   /**
@@ -61,7 +51,7 @@ export class CRUDTaskListService implements OnDestroy {
   /**
    * Supprime une task par son id
    */
-  deleteById(id: number): void {
-    this.http.delete(`${this.baseUrl}/${id}`);
+  deleteById(id: number): Observable<Task> {
+    return this.http.delete<Task>(`${this.baseUrl}/${id}`);
   }
 }

@@ -1,7 +1,7 @@
-import { Status } from './satus.enum';
+import { Status } from './status.enum';
 
 export interface Task {
-  id?:number;
+  id?: number;
   title: string;
   description: string;
   status: Status;

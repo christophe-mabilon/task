@@ -1,0 +1,109 @@
+<form [formGroup]="addForm">
+    <div class="row justify-content-center align-items-center m-2">
+      <div class="d-flex col-12 justify-content-center mx-auto">
+        <h1 class="my-2 text-primary">Ajouter une task</h1>
+      </div>
+      <div class="col-12">
+        <div class="mb-3">
+          <mat-form-field class="col-12">
+            <mat-label for="titre" class="form-label">Titre</mat-label>
+            <input
+              matInput
+              formControlName="title"
+              type="email"
+              id="titre"
+              placeholder="titre de la task"
+            />
+          </mat-form-field>
+          <mat-error
+            *ngIf="
+              addForm.get('title')?.hasError('required') &&
+              addForm.get('title')?.touched
+            "
+            >Le titre est requis</mat-error
+          >
+          <mat-error
+            *ngIf="
+              addForm.get('title')?.hasError('minlength') &&
+              addForm.get('title')?.touched
+            "
+            >Le titre doit avoir au moins 1 caractère</mat-error
+          >
+          <mat-error
+            *ngIf="
+              addForm.get('title')?.hasError('maxlength') &&
+              addForm.get('title')?.touched
+            "
+            >Le titre ne peut pas avoir plus de 30 caractères</mat-error
+          >
+        </div>
+        <div class="mb-3">
+          <mat-form-field class="col-12">
+            <mat-label for="description">Déscription</mat-label>
+            <textarea
+              matInput
+              formControlName="description"
+              id="description"
+              rows="3"
+            ></textarea>
+          </mat-form-field>
+          <mat-error
+            *ngIf="
+              addForm.get('description')?.touched &&
+              addForm.get('description')?.hasError('required')
+            "
+            >La description est requise</mat-error
+          >
+          <mat-error
+            *ngIf="
+              addForm.get('description')?.touched &&
+              addForm.get('description')?.hasError('minlength')
+            "
+            >La description doit avoir au moins 1 caractère</mat-error
+          >
+          <mat-error
+            *ngIf="
+              addForm.get('description')?.touched &&
+              addForm.get('description')?.hasError('maxlength')
+            "
+            >La description ne peut pas avoir plus de 50 caractères</mat-error
+          >
+        </div>
+        <div class="mb-3">
+          <mat-form-field class="col-12">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let option of status" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error
+            *ngIf="
+              addForm.get('status')?.hasError('required') &&
+              addForm.get('status')?.touched
+            "
+            >Le statut est requis</mat-error
+          >
+        </div>
+  
+        <div class="col-12 justify-content-end ms-auto">
+          <div class="d-flex justify-content-end ms-auto align-items-center">
+            <button mat-raised-button (click)="initForm()" class="cancel mx-2">
+              Annuler
+            </button>
+            <button
+              (click)="addTask()"
+              mat-raised-button
+              class="mx-2"
+              color="primary"
+            >
+              Valider
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+  

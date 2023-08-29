@@ -1,6 +1,19 @@
 .nav-link {
   color: white;
+  min-height: 36px !important;
 }
-.navbar-dark{
-  background-color: rgba(84, 1, 100,0.9)!important
+.navbar-dark {
+  background-color: rgba(84, 1, 100, 0.9) !important;
+}
+.task mat-icon {
+  scale: 0.8;
+}
+.list mat-icon{
+  margin-right:2px;
+}
+.add mat-icon {
+  scale: 0.9;
+}
+.delete mat-icon {
+  scale: 0.7;
 }

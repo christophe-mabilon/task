@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { TaskModule } from './task/task.module';
 import { CRUDTaskListService } from 'src/service/crudtask-list.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AddTaskFormModule } from './add-task-form/add-task-form.module';
+import { DeleteTaskFormModule } from './delete-task-form/delete-task-form.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,8 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    MatIconModule,
     TaskModule,
-    HttpClientModule
+    HttpClientModule,
+    AddTaskFormModule,
+    DeleteTaskFormModule,
   ],
   providers: [CRUDTaskListService],
   bootstrap: [AppComponent],
