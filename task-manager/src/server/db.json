@@ -1,0 +1,39 @@
+{
+  "taskList": [
+    {
+      "id": 1,
+      "title": "Ma Taske",
+      "description": "La description de ma task",
+      "status": "A_FAIRE",
+      "creationDate": "Mon Aug 28 2023 00:00:00 GMT+0200"
+    },
+    {
+      "id": 2,
+      "title": "Ma Task",
+      "description": "La description de ma task",
+      "status": "EN_COURS",
+      "creationDate": "Thu Mar 02 2023 00:00:00 GMT+0100"
+    },
+    {
+      "id": 3,
+      "title": "Ma Task",
+      "description": "La description de ma task",
+      "status": "TERMINEE",
+      "creationDate": "Sun Jan 01 2023 00:00:00 GMT+0100"
+    },
+    {
+      "id": 5,
+      "title": "Ma Taske",
+      "description": "La description de ma task",
+      "status": "A_FAIRE",
+      "creationDate": "Mon Aug 28 2023 00:00:00 GMT+0200"
+    },
+    {
+      "title": "Ma Taske",
+      "description": "La description de ma task",
+      "status": "A_FAIRE",
+      "creationDate": "Mon Aug 28 2023 00:00:00 GMT+0200",
+      "id": 6
+    }
+  ]
+}

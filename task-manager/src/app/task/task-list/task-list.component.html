@@ -1,0 +1,8 @@
+<div *ngIf="taskList" class="row justify-content-around p-0 m-0">
+  <app-task
+    *ngFor="let task of taskList; let indexTask = index"
+    class="col-md-4 col-sm-6 col-12 p-3"
+    [task]="task"
+    [taskIndex]="task.id!"
+  ></app-task>
+</div>

@@ -1,0 +1,25 @@
+<div class="card p-3">
+  <div class="ps-2">
+    <p class="text-primary fs-3 mb-2 fw-bold">
+      <span *ngIf="!taskIndex">Ma Task : {{ taskIndex }}</span>
+      <span *ngIf="taskIndex">Ma liste de Task : {{ taskIndex }}</span>
+    </p>
+    <mat-divider class="mb-2"></mat-divider>
+    <p><span class="fw-bold fs-6">Nom: </span>{{ task.title }}</p>
+    <p><span class="fw-bold fs-6">Descrption: </span>{{ task.description }}</p>
+
+    <p>
+      <span class="fw-bold fs-6">Status :</span>
+      <button
+        class="ms-2 py-0 btn fs-6"
+        mat-flat-button
+        [appTaskStatusColor]="task.status"
+      >
+        {{ task.status }}
+      </button>
+    </p>
+    <span class="d-flex justify-content-end ml-auto fs-8">
+      Crée le : {{ task.creationDate | date : "dd-MM-yyyy" }}</span
+    >
+  </div>
+</div>
