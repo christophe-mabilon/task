@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTaskFormModule } from './add-task-form/add-task-form.module';
 import { DeleteTaskFormModule } from './delete-task-form/delete-task-form.module';
 import { MatIconModule } from '@angular/material/icon';
-import { ErrorMinLengthComponent } from './error-min-length/error-min-length.component';
+import { ErrorMinLengthComponent } from '../shared/error-min-length/error-min-length.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],

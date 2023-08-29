@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AddTaskFormRoutingModule } from './add-task-form-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
@@ -13,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MainAddTaskFormComponent } from './main-add-task-form/main-add-task-form.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
-import { ErrorMinLengthComponent } from '../error-min-length/error-min-length.component';
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [AddTaskFormComponent, MainAddTaskFormComponent],
@@ -33,7 +32,7 @@ import { ErrorMinLengthComponent } from '../error-min-length/error-min-length.co
     MatButtonModule,
     MatOptionModule,
     MatSelectModule,
-    ErrorMinLengthComponent,
+    SharedModule,
   ],
 })
 export class AddTaskFormModule {}
