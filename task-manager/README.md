@@ -494,11 +494,12 @@ execution du server sur le port 3000 :
 
 les methode de l'api sont basique
 
- - GET
- - POST
- - PUT
- - PATCH
- - DELETE
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+
 grace a json serveur il est facile de moquer une API par manque de temp je n ai pas pus implementer les param sur l'api comme pour le status qui normalement devrais etre implementée coté Back-end .
 
 ##Voila un petit tuto d'installation rapide :
