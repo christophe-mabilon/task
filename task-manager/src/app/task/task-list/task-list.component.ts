@@ -9,7 +9,7 @@ import { TaskFacadeService } from 'src/service/task-facade.service';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit, OnDestroy {
-  private unsubscribe$ = new Subject();
+  unsubscribe$ = new Subject();
   taskList: Task[] = [];
   constructor(private taskFacadeService: TaskFacadeService) {}
 

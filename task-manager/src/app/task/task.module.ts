@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { TaskComponent } from './task.component';
 import { TaskRoutingModule } from './task.routing.module';
 import { MainTaskComponent } from './main-task/main-task.component';
@@ -19,7 +19,6 @@ import { DateFormatPipe } from '../utils/date-format.pipe';
     TaskStatusColorDirective,
     MatIconModule,
     MatButtonModule,
-    DatePipe
   ],
   exports: [TaskComponent],
 })
