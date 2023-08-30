@@ -485,7 +485,7 @@ On peut constater qu'un module "Shared" peut avoir ses limites (gros volumes de 
 ## Les tests unitaires
 ...
 
-###Démarage de l'api Json serveur pour simuler une api :
+### Démarage de l'api Json serveur pour simuler une api :
 
   json-server src/server/db.json
 execution du server sur le port 3000 :
