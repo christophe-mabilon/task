@@ -10,13 +10,22 @@ const routes: Routes = [
   {
     path: 'archived-tasks',
     loadChildren: () =>
-      import('./archived-tasks/archived-tasks.module').then((module) => module.ArchivedTasksModule),
+      import('./archived-tasks/archived-tasks.module').then(
+        (module) => module.ArchivedTasksModule
+      ),
   },
   {
     path: 'add',
     loadChildren: () =>
       import('./add-task-form/add-task-form.module').then(
         (module) => module.AddTaskFormModule
+      ),
+  },
+  {
+    path: 'edit',
+    loadChildren: () =>
+      import('./update-task/update-task.module').then(
+        (module) => module.UpdateTaskModule
       ),
   },
   {

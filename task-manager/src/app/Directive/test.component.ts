@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-export @Component({
+export
+@Component({
   template: `<div [appTaskStatusColor]="status"></div>`,
 })
 class TestComponent {

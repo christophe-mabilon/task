@@ -19,10 +19,8 @@ import { SharedModule } from 'src/shared/shared.module';
   imports: [
     CommonModule,
     AddTaskFormRoutingModule,
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AddTaskFormRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
