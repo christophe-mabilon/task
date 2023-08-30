@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ArchivedTasksModule } from './archived-tasks/archived-tasks.module';
 import { DateFormatPipe } from './utils/date-format.pipe';
 import { TestComponent } from './Directive/test.component';
+import { TaskStatusColorDirective } from './Directive/task-status-color.directive';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, TestComponent],
@@ -29,7 +30,7 @@ import { TestComponent } from './Directive/test.component';
     HttpClientModule,
     AddTaskFormModule,
     DeleteTaskFormModule,
-    ArchivedTasksModule,
+    ArchivedTasksModule,TaskStatusColorDirective
   ],
   providers: [CRUDTaskListService],
   bootstrap: [AppComponent],
