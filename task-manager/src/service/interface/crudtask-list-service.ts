@@ -6,5 +6,5 @@ export interface CRUDTaskListService {
   create(task: Task): Task;
   read(): Observable<Task[]>;
   updateById(id: number, taskToUpdate: Task): Observable<Task>;
-  deleteById(id: number): void;
+  deleteById(id: number): Observable<Task>;
 }

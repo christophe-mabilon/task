@@ -1,20 +1,21 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
+import { Status } from 'src/model/status.enum';
 import { Task } from 'src/model/task';
-import { TaskFacadeService } from 'src/service/task-facade.service';
+import { ByStatutTaskListService } from 'src/service/by-statut-task-list.service';
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss'],
+  selector: 'app-archived-tasks',
+  templateUrl: './archived-tasks.component.html',
+  styleUrls: ['./archived-tasks.component.scss']
 })
-export class TaskListComponent implements OnInit, OnDestroy {
+export class ArchivedTasksComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
   taskList: Task[] = [];
-  constructor(private taskFacadeService: TaskFacadeService) {}
+  constructor(private byStatutTaskListService: ByStatutTaskListService) {}
 
   ngOnInit(): void {
-    this.getTasks();
+    this.getArchivedTasks(Status.TERMINEE);
   }
 
   ngOnDestroy(): void {
@@ -25,9 +26,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next(void 0);
     this.unsubscribe$.complete;
   }
-  getTasks(): Task[] {
-    this.taskFacadeService
-      .read()
+  getArchivedTasks(status:Status): Task[] {
+    this.byStatutTaskListService.getTasksByStatus(status)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (tasks: Task[]) => {

@@ -34,7 +34,6 @@ export class MainTaskComponent implements OnInit,OnDestroy {
           this.task = tasks[0];
         },
       });
-      console.log(this.task)
     return this.task!;
   }
 }

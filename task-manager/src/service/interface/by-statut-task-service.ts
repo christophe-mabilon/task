@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs/internal/Observable';
+import { Status } from 'src/model/status.enum';
 import { Task } from 'src/model/task';
 
 export interface ByStatutTaskService {
-  getByStatus(status: string): Observable<Task[]>
+  getTasksByStatus(status: Status): Task[]
 }

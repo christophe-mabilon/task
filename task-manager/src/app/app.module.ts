@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTaskFormModule } from './add-task-form/add-task-form.module';
 import { DeleteTaskFormModule } from './delete-task-form/delete-task-form.module';
 import { MatIconModule } from '@angular/material/icon';
-import { ErrorMinLengthComponent } from '../shared/error-min-length/error-min-length.component';
+import { ArchivedTasksModule } from './archived-tasks/archived-tasks.module';
+import { DateFormatPipe } from './utils/date-format.pipe';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -27,6 +28,7 @@ import { ErrorMinLengthComponent } from '../shared/error-min-length/error-min-le
     HttpClientModule,
     AddTaskFormModule,
     DeleteTaskFormModule,
+    ArchivedTasksModule,
   ],
   providers: [CRUDTaskListService],
   bootstrap: [AppComponent],

@@ -40,13 +40,12 @@ export class AddTaskFormComponent implements OnInit {
       status: ['', Validators.required],
       creationDate: ['', Validators.required],
     });
-    
   }
 
   addTask() {
     this.addForm.controls['creationDate'].patchValue(new Date());
     if (this.addForm.valid) {
-      this.taskAdded.emit(this.addForm);console.log(this.addForm.value)
+      this.taskAdded.emit(this.addForm);
     } else {
       alert("Le formulaire n'est pas valide");
     }

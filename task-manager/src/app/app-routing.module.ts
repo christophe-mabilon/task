@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./task/task.module').then((module) => module.TaskModule),
   },
   {
+    path: 'archived-tasks',
+    loadChildren: () =>
+      import('./archived-tasks/archived-tasks.module').then((module) => module.ArchivedTasksModule),
+  },
+  {
     path: 'add',
     loadChildren: () =>
       import('./add-task-form/add-task-form.module').then(

@@ -25,15 +25,23 @@
       <ul class="navbar-nav me-auto align-items-center mb-lg-0">
         <li class="nav-item">
           <a class="nav-link d-flex w-100 task" [routerLink]="'task'"><div class="d-flex align-items-center">
-            <mat-icon class="d-flex">task</mat-icon>Task</div></a>
+            <mat-icon class="d-flex">task</mat-icon>Tache unique</div></a>
         </li>
         <li class="nav-item">
           <a class="nav-link d-flex w-100 list" [routerLink]="'display'"
             ><div class="d-flex align-items-center">
-              <mat-icon class="d-flex">list</mat-icon>TaskList
+              <mat-icon class="d-flex">list</mat-icon>Liste de taches
             </div></a
           >
         </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex w-100 done" [routerLink]="'archived-tasks'"
+            ><div class="d-flex align-items-center">
+              <mat-icon class="d-flex">done</mat-icon>Taches archivées
+            </div></a
+          >
+        </li>
+        
 
         <li class="nav-item">
           <a class="nav-link d-flex w-100 add" [routerLink]="'add'"

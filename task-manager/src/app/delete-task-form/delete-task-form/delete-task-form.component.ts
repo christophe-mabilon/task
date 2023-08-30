@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Task } from 'src/model/task';
 import { CRUDTaskListService } from 'src/service/crudtask-list.service';
@@ -15,10 +14,10 @@ export class DeleteTaskFormComponent {
   form!: FormGroup;
   private unsubscribe$ = new Subject();
   selectedTask!: Task[];
+  submitedForm = false;
   constructor(
     private fb: FormBuilder,
-    private crudTaskListService: CRUDTaskListService,
-    private router: Router
+    private crudTaskListService: CRUDTaskListService
   ) {}
   ngOnDestroy(): void {
     this.unsubscribeObservables();
@@ -40,12 +39,12 @@ export class DeleteTaskFormComponent {
   }
 
   findTask() {
+    this.submitedForm = true;
     this.crudTaskListService
       .read()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (result: Task[]) => {
-          console.log(result);
           this.selectedTask = result.filter(
             (task) =>
               task.title.toLowerCase() ===
@@ -57,6 +56,7 @@ export class DeleteTaskFormComponent {
   deleteTask(task: Task) {
     if (this.selectedTask) {
       this.deletedTaskEmiter.emit(task);
+      this.submitedForm = false;
     }
   }
 }
