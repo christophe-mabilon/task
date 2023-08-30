@@ -14,9 +14,10 @@ import { DeleteTaskFormModule } from './delete-task-form/delete-task-form.module
 import { MatIconModule } from '@angular/material/icon';
 import { ArchivedTasksModule } from './archived-tasks/archived-tasks.module';
 import { DateFormatPipe } from './utils/date-format.pipe';
+import { TestComponent } from './Directive/test.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, TestComponent],
   imports: [
     CommonModule,
     BrowserModule,
