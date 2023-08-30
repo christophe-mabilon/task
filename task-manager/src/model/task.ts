@@ -6,4 +6,5 @@ export interface Task {
   description: string;
   status: Status;
   creationDate: Date;
+  editionDate?: Date;
 }

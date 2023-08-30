@@ -1,1 +1,125 @@
-<p>update-task-form works!</p>
+<form [formGroup]="editForm">
+  <div class="row justify-content-center align-items-center m-2">
+    <div class="d-flex col-12 justify-content-center mx-auto">
+      <h1 class="my-2 text-primary">Editer une tâche</h1>
+    </div>
+    <div class="col-12">
+      <div class="mb-3">
+        <mat-form-field class="col-12">
+          <mat-label class="form-label">Titre</mat-label>
+          <input
+            matInput
+            formControlName="title"
+            type="email"
+            id="titre"
+            placeholder="titre de la task"
+          />
+        </mat-form-field>
+        <app-error-min-length
+          [showError]="
+            (editForm.get('title')?.hasError('required') &&
+              editForm.get('title')?.touched) ||
+            (editForm.get('title')?.hasError('minlength') &&
+              editForm.get('title')?.touched) ||
+            (editForm.get('title')?.hasError('maxlength') &&
+              editForm.get('title')?.touched)
+          "
+          [require]="
+            editForm.get('title')?.hasError('required') &&
+            editForm.get('title')?.touched
+          "
+          [fieldName]="'titre'"
+          [minLength]="
+            editForm.get('title')?.hasError('minlength') &&
+            editForm.get('title')?.touched
+              ? 2
+              : undefined
+          "
+          [maxLength]="
+            editForm.get('title')?.hasError('maxlength') &&
+            editForm.get('title')?.touched
+              ? 30
+              : undefined
+          "
+        ></app-error-min-length>
+      </div>
+      <div class="mb-3">
+        <mat-form-field class="col-12">
+          <mat-label>Déscription</mat-label>
+          <textarea
+            matInput
+            formControlName="description"
+            id="description"
+            rows="3"
+          ></textarea>
+        </mat-form-field>
+        <app-error-min-length
+          [showError]="
+            (editForm.get('description')?.hasError('required') &&
+              editForm.get('description')?.touched) ||
+            (editForm.get('description')?.hasError('minlength') &&
+              editForm.get('description')?.touched) ||
+            (editForm.get('description')?.hasError('maxlength') &&
+              editForm.get('description')?.touched)
+          "
+          [require]="
+            editForm.get('description')?.hasError('required') &&
+            editForm.get('description')?.touched
+          "
+          [fieldName]="'description'"
+          [minLength]="
+            editForm.get('description')?.hasError('minlength') &&
+            editForm.get('description')?.touched
+              ? 2
+              : undefined
+          "
+          [maxLength]="
+            editForm.get('description')?.hasError('maxlength') &&
+            editForm.get('description')?.touched
+              ? 50
+              : undefined
+          "
+        ></app-error-min-length>
+      </div>
+      <div class="mb-3">
+        <mat-form-field class="col-12">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option *ngFor="let option of status" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <app-error-min-length
+          [showError]="
+            editForm.get('status')?.hasError('required') &&
+            editForm.get('status')?.touched
+          "
+          [require]="
+            editForm.get('status')?.hasError('required') &&
+            editForm.get('status')?.touched
+          "
+          [fieldName]="'status'"
+          [minLength]="undefined"
+          [maxLength]="undefined"
+        ></app-error-min-length>
+      </div>
+
+      <div class="col-12 justify-content-end ms-auto">
+        <div class="d-flex justify-content-end ms-auto align-items-center">
+          <button mat-raised-button (click)="initForm()" class="cancel mx-2">
+            Annuler
+          </button>
+          <button
+            (click)="editFormTask()"
+            mat-raised-button
+            class="mx-2"
+            color="primary"
+          >
+            Valider
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

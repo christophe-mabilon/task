@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { TaskComponent } from './task.component';
 import { TaskRoutingModule } from './task.routing.module';
 import { MainTaskComponent } from './main-task/main-task.component';
@@ -9,9 +9,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskStatusColorDirective } from '../Directive/task-status-color.directive';
 import { DateFormatPipe } from '../utils/date-format.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [TaskComponent, TaskListComponent, MainTaskComponent,DateFormatPipe],
+  declarations: [
+    TaskComponent,
+    TaskListComponent,
+    MainTaskComponent,
+    DateFormatPipe,
+  ],
   imports: [
     CommonModule,
     TaskRoutingModule,
@@ -19,6 +25,7 @@ import { DateFormatPipe } from '../utils/date-format.pipe';
     TaskStatusColorDirective,
     MatIconModule,
     MatButtonModule,
+    RouterModule,
   ],
   exports: [TaskComponent],
 })

@@ -23,7 +23,7 @@ export class MainDeleteTaskFormComponent {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
 
   deleteTask(task: Task): void {

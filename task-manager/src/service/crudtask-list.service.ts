@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Task } from 'src/model/task';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CRUDTaskListService implements OnDestroy {
   baseUrl = 'http://localhost:3000/taskList';
   private unsubscribe$ = new Subject();
+  private sharedTask = new Subject<Task>();
 
   constructor(private http: HttpClient) {}
 
@@ -18,9 +19,16 @@ export class CRUDTaskListService implements OnDestroy {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
 
+  setsharedTask(task: Task): void {
+    this.sharedTask.next(task);
+  }
+
+  getsharedTask(): Observable<Task> {
+    return this.sharedTask.asObservable();
+  }
   /**
    * Crée une task
    * @param task

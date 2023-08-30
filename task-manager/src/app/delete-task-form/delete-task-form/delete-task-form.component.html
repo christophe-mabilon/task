@@ -38,7 +38,7 @@
       </div>
     </div>
     <div
-      *ngIf="selectedTask  && submitedForm"
+      *ngIf="selectedTask?.length === 0 && submitedForm"
       class="d-flex justify-content-center mt-2 text-danger"
     >
       Aucune tache n'a été trouvée avec le therme :

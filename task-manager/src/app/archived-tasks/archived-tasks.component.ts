@@ -7,7 +7,7 @@ import { ByStatutTaskListService } from 'src/service/by-statut-task-list.service
 @Component({
   selector: 'app-archived-tasks',
   templateUrl: './archived-tasks.component.html',
-  styleUrls: ['./archived-tasks.component.scss']
+  styleUrls: ['./archived-tasks.component.scss'],
 })
 export class ArchivedTasksComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
@@ -24,10 +24,11 @@ export class ArchivedTasksComponent implements OnInit, OnDestroy {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
-  getArchivedTasks(status:Status): Task[] {
-    this.byStatutTaskListService.getTasksByStatus(status)
+  getArchivedTasks(status: Status): Task[] {
+    this.byStatutTaskListService
+      .getTasksByStatus(status)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (tasks: Task[]) => {

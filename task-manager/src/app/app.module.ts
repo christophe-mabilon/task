@@ -13,7 +13,6 @@ import { AddTaskFormModule } from './add-task-form/add-task-form.module';
 import { DeleteTaskFormModule } from './delete-task-form/delete-task-form.module';
 import { MatIconModule } from '@angular/material/icon';
 import { ArchivedTasksModule } from './archived-tasks/archived-tasks.module';
-import { DateFormatPipe } from './utils/date-format.pipe';
 import { TestComponent } from './Directive/test.component';
 import { TaskStatusColorDirective } from './Directive/task-status-color.directive';
 
@@ -30,7 +29,8 @@ import { TaskStatusColorDirective } from './Directive/task-status-color.directiv
     HttpClientModule,
     AddTaskFormModule,
     DeleteTaskFormModule,
-    ArchivedTasksModule,TaskStatusColorDirective
+    ArchivedTasksModule,
+    TaskStatusColorDirective,
   ],
   providers: [CRUDTaskListService],
   bootstrap: [AppComponent],

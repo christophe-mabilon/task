@@ -6,6 +6,6 @@
     [taskIndex]="task.id!"
   ></app-task>
 </div>
-<div *ngIf="taskList" class="row justify-content-center mt-5">
+<div *ngIf="taskList.length === 0" class="row justify-content-center mt-5">
   Aucune tache à afficher
 </div>

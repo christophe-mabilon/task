@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
@@ -10,16 +10,16 @@ import { CRUDTaskListService } from 'src/service/crudtask-list.service';
   templateUrl: './main-update-task.component.html',
   styleUrls: ['./main-update-task.component.scss'],
 })
-export class MainUpdateTaskComponent {
-  @Input() taskToUpdate!: Task;
+export class MainUpdateTaskComponent implements OnInit, OnDestroy {
+  taskToUpdate!: Task;
   private unsubscribe$ = new Subject();
-  initTask = new Subject<boolean>();
   updatedTask = false;
 
   constructor(
     private crudTaskListService: CRUDTaskListService,
     private router: Router
   ) {}
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.unsubscribeObservables();
@@ -27,7 +27,7 @@ export class MainUpdateTaskComponent {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
 
   updateTask(formData: FormGroup) {
@@ -42,7 +42,7 @@ export class MainUpdateTaskComponent {
       };
 
       this.crudTaskListService
-        .updateById(formData.value.id, formData.value)
+        .updateById(formData.value.id, task)
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe({
           next: (response: Task) => {

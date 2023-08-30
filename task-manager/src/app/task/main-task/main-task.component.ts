@@ -6,9 +6,9 @@ import { CRUDTaskListService } from 'src/service/crudtask-list.service';
 @Component({
   selector: 'app-main-task',
   templateUrl: './main-task.component.html',
-  styleUrls: ['./main-task.component.scss']
+  styleUrls: ['./main-task.component.scss'],
 })
-export class MainTaskComponent implements OnInit,OnDestroy {
+export class MainTaskComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
   task!: Task;
   constructor(private crudTaskService: CRUDTaskListService) {}
@@ -23,7 +23,7 @@ export class MainTaskComponent implements OnInit,OnDestroy {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
   getTask(): Task {
     this.crudTaskService

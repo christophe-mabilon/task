@@ -25,7 +25,7 @@ export class DeleteTaskFormComponent {
 
   unsubscribeObservables(): void {
     this.unsubscribe$.next(void 0);
-    this.unsubscribe$.complete;
+    this.unsubscribe$.complete();
   }
 
   ngOnInit(): void {

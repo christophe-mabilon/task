@@ -1,12 +1,8 @@
-<div class="container card my-3">
-  <app-update-task-form
-    (taskupdated)="updateTask($event)"
-  ></app-update-task-form>
+<app-update-task-form (taskUpdated)="updateTask($event)"></app-update-task-form>
 
-  <div
-    class="my-3 py-2 border border-grey rounded-5 col-12 bg-success text-light text-center"
-    *ngIf="updatedTask"
-  >
-    Tache modifiée avec succès
-  </div>
+<div
+  class="my-3 py-2 border border-grey rounded-5 col-12 bg-success text-light text-center"
+  *ngIf="updatedTask"
+>
+  Tache modifiée avec succès
 </div>
